@@ -1,0 +1,98 @@
+CODE:
+import java.util.Scanner;
+
+public class WasteCollection {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // 1. Bin status update
+        System.out.print("Enter bin fill percentage: ");
+        int fill = sc.nextInt();
+
+        if (fill >= 80) {
+            System.out.println("Bin is FULL - Pickup required.");
+        } else {
+            System.out.println("Bin is NOT FULL - No pickup required.");
+        }
+
+        // 2. Scan collection points
+        System.out.print("\nEnter number of collection points: ");
+        int points = sc.nextInt();
+
+        for (int i = 1; i <= points; i++) {
+            System.out.println("Scanning collection point " + i);
+        }
+
+        // 3. Truck assignment until route is complete
+        System.out.print("\nEnter number of points for truck route: ");
+        int route = sc.nextInt();
+
+        int completed = 0;
+
+        while (completed < route) {
+            completed++;
+            System.out.println("Truck completed point " + completed);
+        }
+
+        System.out.println("Route completed.");
+
+        // 4. Waste category using switch
+        System.out.print("\nEnter waste category (1-Organic, 2-Plastic, 3-Metal): ");
+        int category = sc.nextInt();
+
+        switch (category) {
+            case 1:
+                System.out.println("Organic waste - Green bin.");
+                break;
+            case 2:
+                System.out.println("Plastic waste - Blue bin.");
+                break;
+            case 3:
+                System.out.println("Metal waste - Separate collection.");
+                break;
+            default:
+                System.out.println("Invalid waste category.");
+        }
+
+        // 5. Missed pickup report
+        System.out.print("\nWas pickup missed? (1-Yes, 0-No): ");
+        int missed = sc.nextInt();
+
+        if (missed == 1) {
+            System.out.println("Missed pickup reported.");
+        } else {
+            System.out.println("No missed pickup.");
+        }
+
+        sc.close();
+    }
+}
+
+
+OUTPUT:
+Enter bin fill percentage: 90
+Bin is FULL - Pickup required.
+
+Enter number of collection points: 3
+Scanning collection point 1
+Scanning collection point 2
+Scanning collection point 3
+
+Enter number of points for truck route: 3
+Truck completed point 1
+Truck completed point 2
+Truck completed point 3
+Route completed.
+
+Enter waste category (1-Organic, 2-Plastic, 3-Metal): 2
+Plastic waste - Blue bin.
+
+Was pickup missed? (1-Yes, 0-No): 1
+Missed pickup reported.
+
+
+
+
+
